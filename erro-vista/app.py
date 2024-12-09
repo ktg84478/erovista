@@ -15,7 +15,7 @@ st.write(os.listdir("./data") if os.path.exists("./data") else "No 'data' folder
 # Load the CSV file into a DataFrame
 # @st.cache
 def load_table_data():
-    csv_path = "./erro-vista/data.csv"  # Update with the path to your data folder
+    csv_path = "erro-vista/data.csv"  # Update with the path to your data folder
     # print("Current working directory:", os.getcwd())
     # print("Checking if file exists:", os.path.exists(csv_path))
     # print(csv_path)
