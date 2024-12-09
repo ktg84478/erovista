@@ -77,11 +77,11 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
                         <td>{}</td>
                     </tr>
                     <tr>
-                        <th>Alaskan Yellow Cedar</th>
+                        <th>Alaskan Yellow Cedar Max Fixture EPA</th>
                         <td class="highlight">{}</td>
                     </tr>
                     <tr>
-                        <th>Southern Yellow Pine</th>
+                        <th>Southern Yellow Pine Max Fixture EPA</th>
                         <td class="highlight">{}</td>
                     </tr>
                 </table>
