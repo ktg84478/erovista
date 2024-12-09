@@ -111,38 +111,5 @@ st.markdown("""
         <li>Use of hot-dipped galvanized or stainless steel fasteners recommended. A gasket shall be used to isolate metal fixtures from treated SYP poles.</li>
         <li>Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li>
     </ol>
-
-    <h4>Minimum Embedment Below Grade (ft)</h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Pole Size</th>
-                <th>Gravel Soils</th>
-                <th>Sandy Soils</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>5" x 5-1/2"</td>
-                <td>3'-6"</td>
-                <td>4'-0"</td>
-            </tr>
-            <tr>
-                <td>6-3/4" x 6-3/4"</td>
-                <td>4'-6"</td>
-                <td>5'-0"</td>
-            </tr>
-            <tr>
-                <td>8-1/4" x 8-1/2"</td>
-                <td>5'-6"</td>
-                <td>6'-0"</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ol start="7">
-        <li>Recommended embedment depth based on pole being encased in a 24" diameter pier below grade or as designed by a licensed professional engineer.</li>
-        <li>Direct embedment depth based on the following soil properties: Gravel Soils (GW, GP): φ = 34°, γ = 130 lb/ft³, c = 0 lb/ft². Sandy Soils (SW, SP, SM, SC, GM, GC): φ = 30°, γ = 120 lb/ft³, c = 0 lb/ft².</li>
-    </ol>
 </div>
 """, unsafe_allow_html=True)
