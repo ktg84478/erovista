@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import os
 
-# st.write("Listing files in current directory:")
-# st.write(os.listdir(os.getcwd()))
+st.write("Listing files in current directory:")
+st.write(os.listdir(os.getcwd()))
 
 # Load the CSV file into a DataFrame
 @st.cache
