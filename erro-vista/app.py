@@ -20,7 +20,7 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Load custom CSS
-local_css("static/style.css")
+local_css("erro-vista/static/style.css")
 
 st.title("EroVista EPA Configuration")
 
