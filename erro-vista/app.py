@@ -41,18 +41,6 @@ wind_speed = st.sidebar.selectbox(
     "Wind Speed (mph)", table_data["wind_speed_mph"].unique()
 )
 
-# Fixture configuration to image mapping
-fixture_images = {
-    "Top Mount Fixture": "erro-vista/static/images/top_mount_fixture.png",
-    "Single Side Mount Fixture": "erro-vista/static/images/single_side_mount_fixture.png",
-    "Two Or More Side Mount Fixtures": "erro-vista/static/images/two_side_mount_fixtures.png"
-}
-
-# Display picture based on fixture configuration
-st.markdown("<h2>Fixture Configuration Preview</h2>", unsafe_allow_html=True)
-if fixture_config in fixture_images:
-    st.image(fixture_images[fixture_config], use_column_width=True, caption=f"{fixture_config} Preview")
-
 # Button to display results
 if st.sidebar.button("Calculate Max Fixture EPA..."):
     try:
