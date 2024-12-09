@@ -4,7 +4,7 @@ import pandas as pd
 # Load the CSV file into a DataFrame
 @st.cache
 def load_table_data():
-    csv_path = "data.csv"  # Update with the path to your data folder
+    csv_path = "data/data.csv"  # Update with the path to your data folder
     data = pd.read_csv(csv_path)
     return data
 
