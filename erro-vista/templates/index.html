@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EroVista Lookup</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>EroVista Lookup</h1>
+    <form action="/get_values/" method="post">
+        <label for="fixture_config">Fixture Configuration:</label>
+        <select id="fixture_config" name="fixture_config">
+            <option value="Top Mount Fixture">Top Mount Fixture</option>
+            <option value="Single Side Mount Fixture">Single Side Mount Fixture</option>
+            <option value="Two Or More Side Mount Fixtures">Two Or More Side Mount Fixtures</option>
+        </select>
+        <br>
+        <label for="pole_size">EroVista Pole Size:</label>
+        <select id="pole_size" name="pole_size">
+            <option value="5x5-1/2">5x5-1/2</option>
+            <option value="6-3/4x6-3/4">6-3/4x6-3/4</option>
+        </select>
+        <br>
+        <label for="pole_height">Pole Height (ft):</label>
+        <select id="pole_height" name="pole_height">
+            <option value="8">8</option>
+            <option value="10">10</option>
+        </select>
+        <br>
+        <label for="wind_speed">Wind Speed (mph):</label>
+        <select id="wind_speed" name="wind_speed">
+            <option value="115">115</option>
+            <option value="120">120</option>
+            <option value="130">130</option>
+        </select>
+        <br><br>
+        <button type="submit">Get Values</button>
+    </form>
+</body>
+</html>

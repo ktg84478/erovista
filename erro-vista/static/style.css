@@ -1,0 +1,127 @@
+/* Fonts and General Styling */
+body {
+  font-family: 'Montserrat', sans-serif; /* Default font */
+  color: rgb(247, 247, 247); /* Default text color */
+  background-color: rgb(22, 22, 22); /* Background color */
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Archivo Black', sans-serif; /* Heading font */
+  color: rgb(0, 118, 64); /* Heading color */
+}
+
+p {
+  font-family: 'Cabin', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgb(164, 164, 164); /* Paragraph text color */
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 135, 73); /* Link color */
+  font-weight: 700;
+}
+
+a:hover {
+  color: rgb(0, 196, 110); /* Hover state color for links */
+}
+
+button {
+  font-family: 'Cabin', sans-serif;
+  background-color: rgb(0, 118, 64); /* Button background color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(0, 135, 73);
+}
+
+/* Header and Footer Styling */
+.header {
+  background-color: rgb(0, 118, 64);
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.footer {
+  background-color: rgb(22, 22, 22);
+  color: rgb(164, 164, 164);
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Primary Button Styling */
+.button-primary {
+  background-color: rgb(0, 118, 64);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.button-primary:hover {
+  background-color: rgb(0, 135, 73);
+}
+
+/* Table Styling */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: rgb(33, 33, 33); /* Table background */
+  color: rgb(247, 247, 247); /* Text color */
+}
+
+table th, table td {
+  border: 1px solid rgb(55, 55, 55); /* Table borders */
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: rgb(0, 118, 64); /* Header background */
+  color: white; /* Header text color */
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: rgb(28, 28, 28); /* Alternating row color */
+}
+
+table tr:hover {
+  background-color: rgb(39, 39, 39); /* Hover effect for rows */
+}
+
+.highlight {
+  background-color: rgb(0, 135, 73); /* Highlighted cell background */
+  color: white; /* Highlighted text color */
+  font-weight: bold;
+}
+
+/* Back Link */
+a.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(0, 135, 73);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+a.back-link:hover {
+  color: rgb(0, 196, 110);
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="content">
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% else %}
+            <h1>Results</h1>
+            <table>
+                <tr>
+                    <th>Fixture Configuration</th>
+                    <td>{{ fixture_config }}</td>
+                </tr>
+                <tr>
+                    <th>Pole Size</th>
+                    <td>{{ pole_size }}</td>
+                </tr>
+                <tr>
+                    <th>Pole Height (ft)</th>
+                    <td>{{ pole_height }}</td>
+                </tr>
+                <tr>
+                    <th>Wind Speed (mph)</th>
+                    <td>{{ wind_speed }}</td>
+                </tr>
+                <tr>
+                    <th>Alaskan Yellow Cedar</th>
+                    <td class="highlight">{{ cedar }}</td>
+                </tr>
+                <tr>
+                    <th>Southern Yellow Pine</th>
+                    <td class="highlight">{{ pine }}</td>
+                </tr>
+            </table>
+        {% endif %}
+        <a href="/" class="back-link">Go Back</a>
+    </div>
+</body>
+</html>
