@@ -102,7 +102,7 @@ st.markdown("""
 # Add notes as footnotes
 st.markdown("""
 <div class="notes">
-    <h2>Notes:</h2>
+    <h3>Notes:</h3>
     <ol>
         <li>Design based on AASHTO LRFDLTS-1 using wind pressures derived from ASCE 7-10 and ASCE 7-16 using an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.</li>
         <li>Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns supplied by EroVista and manufactured in accordance with ANSI A190.1. Southern Yellow Pine poles are pressure treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values reduced for wet use conditions.</li>
@@ -112,7 +112,7 @@ st.markdown("""
         <li>Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li>
     </ol>
 
-    <h3>Minimum Embedment Below Grade (ft)</h3>
+    <h4>Minimum Embedment Below Grade (ft)</h4>
     <table>
         <thead>
             <tr>
