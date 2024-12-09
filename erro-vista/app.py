@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 
+# Set the app's configuration
+st.set_page_config(page_title="EroVista EPA Configuration", layout="wide")
+
 # Load the CSV file into a DataFrame
 @st.cache_data
 def load_table_data():
@@ -18,9 +21,6 @@ def local_css(file_name):
 
 # Load custom CSS
 local_css("erro-vista/static/style.css")
-
-# Set the app's title
-st.set_page_config(page_title="EroVista EPA Configuration", layout="wide")
 
 st.title("EroVista EPA Configuration")
 
@@ -96,4 +96,3 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
 st.markdown("""
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 """, unsafe_allow_html=True)
-
