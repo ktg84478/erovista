@@ -55,6 +55,10 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
             cedar = filtered_data["Alaskan Yellow Cedar Poles"].values[0]
             pine = filtered_data["Southern Yellow Pine Poles"].values[0]
 
+            # Handle cases where one or both values are 0
+            cedar_message = f"**Alaskan Yellow Cedar Max Fixture EPA (ft<sup>2</sup>):** {cedar}" if cedar > 0 else "**Alaskan Yellow Cedar Max Fixture EPA:** Selected Configuration is not Possible"
+            pine_message = f"**Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>):** {pine}" if pine > 0 else "**Southern Yellow Pine Max Fixture EPA:** Selected Configuration is not Possible"
+
             # Display results using your custom styling
             st.markdown(f"""
             <div class="content">
@@ -78,13 +82,15 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
                     </tr>
                     <tr>
                         <th>Alaskan Yellow Cedar Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td class="highlight">{cedar}</td>
+                        <td class="highlight">{'N/A' if cedar == 0 else cedar}</td>
                     </tr>
                     <tr>
                         <th>Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td class="highlight">{pine}</td>
+                        <td class="highlight">{'N/A' if pine == 0 else pine}</td>
                     </tr>
                 </table>
+                <p>{cedar_message}</p>
+                <p>{pine_message}</p>
             </div>
             """, unsafe_allow_html=True)
         else:
