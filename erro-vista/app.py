@@ -5,6 +5,13 @@ import os
 st.write("Listing files in current directory:")
 st.write(os.listdir(os.getcwd()))
 
+
+st.write("Current directory contents:")
+st.write(os.listdir("."))
+st.write("Contents of 'data' folder:")
+st.write(os.listdir("./data") if os.path.exists("./data") else "No 'data' folder found")
+
+
 # Load the CSV file into a DataFrame
 @st.cache
 def load_table_data():
