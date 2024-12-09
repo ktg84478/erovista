@@ -1,17 +1,10 @@
 import streamlit as st
 import pandas as pd
-import os
-
-st.write("Current directory contents:")
-st.write(os.listdir("."))
-st.write("Contents of 'erro-vista/data' folder:")
-st.write(os.listdir("./erro-vista/data") if os.path.exists("./erro-vista/data") else "No 'data' folder found")
-
 
 # Load the CSV file into a DataFrame
-# @st.cache
+@st.cache
 def load_table_data():
-    csv_path = "erro-vista/data.csv"  # Update with the path to your data folder
+    csv_path = "erro-vista/data/data.csv"  # Update with the path to your data folder
     # print("Current working directory:", os.getcwd())
     # print("Checking if file exists:", os.path.exists(csv_path))
     # print(csv_path)
