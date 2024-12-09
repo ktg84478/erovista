@@ -89,8 +89,8 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
                         <td class="highlight">{'N/A' if pine == 0 else pine}</td>
                     </tr>
                 </table>
-                <p>{cedar_message}</p>
-                <p>{pine_message}</p>
+                # <p>{cedar_message}</p>
+                # <p>{pine_message}</p>
             </div>
             """, unsafe_allow_html=True)
         else:
