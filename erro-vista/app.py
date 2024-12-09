@@ -5,10 +5,10 @@ import os
 # Load the CSV file into a DataFrame
 @st.cache
 def load_table_data():
-    csv_path = "data/data.csv"  # Update with the path to your data folder
-    print("Current working directory:", os.getcwd())
-    print("Checking if file exists:", os.path.exists(csv_path))
-    print(csv_path)
+    csv_path = "./data/data.csv"  # Update with the path to your data folder
+    # print("Current working directory:", os.getcwd())
+    # print("Checking if file exists:", os.path.exists(csv_path))
+    # print(csv_path)
     data = pd.read_csv(csv_path)
     return data
 
