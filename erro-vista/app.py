@@ -2,12 +2,9 @@ import streamlit as st
 import pandas as pd
 
 # Load the CSV file into a DataFrame
-@st.cache
+@st.cache_data
 def load_table_data():
     csv_path = "erro-vista/data/data.csv"  # Update with the path to your data folder
-    # print("Current working directory:", os.getcwd())
-    # print("Checking if file exists:", os.path.exists(csv_path))
-    # print(csv_path)
     data = pd.read_csv(csv_path)
     return data
 
@@ -22,9 +19,12 @@ def local_css(file_name):
 # Load custom CSS
 local_css("erro-vista/static/style.css")
 
+# Set the app's title
+st.set_page_config(page_title="EroVista EPA Configuration", layout="wide")
+
 st.title("EroVista EPA Configuration")
 
-# Dropdowns based on unique values in the CSV
+# Sidebar inputs for user selections
 mount_type = st.sidebar.selectbox(
     "Mount Type", table_data["mount_type"].unique()
 )
@@ -56,40 +56,44 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
             pine = filtered_data["Southern Yellow Pine Poles"].values[0]
 
             # Display results using your custom styling
-            st.markdown("""
+            st.markdown(f"""
             <div class="content">
                 <h1>Outcome</h1>
                 <table>
                     <tr>
                         <th>Fixture Configuration</th>
-                        <td>{}</td>
+                        <td>{fixture_config}</td>
                     </tr>
                     <tr>
                         <th>Pole Size</th>
-                        <td>{}</td>
+                        <td>{pole_size}</td>
                     </tr>
                     <tr>
                         <th>Pole Height (ft)</th>
-                        <td>{}</td>
+                        <td>{pole_height}</td>
                     </tr>
                     <tr>
                         <th>Wind Speed (mph)</th>
-                        <td>{}</td>
+                        <td>{wind_speed}</td>
                     </tr>
                     <tr>
                         <th>Alaskan Yellow Cedar Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td class="highlight">{}</td>
+                        <td class="highlight">{cedar}</td>
                     </tr>
                     <tr>
-                        <th>Southern Yellow Pine Max Fixture EPA(ft<sup>2</sup>)</th>
-                        <td class="highlight">{}</td>
+                        <th>Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>)</th>
+                        <td class="highlight">{pine}</td>
                     </tr>
                 </table>
             </div>
-            """.format(
-                fixture_config, pole_size, pole_height, wind_speed, cedar, pine
-            ), unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
         else:
             st.error("No matching data found.")
     except Exception as e:
         st.error(f"An error occurred: {e}")
+
+# Ensure the app renders well on mobile devices
+st.markdown("""
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+""", unsafe_allow_html=True)
+
