@@ -2,14 +2,10 @@ import streamlit as st
 import pandas as pd
 import os
 
-st.write("Listing files in current directory:")
-st.write(os.listdir(os.getcwd()))
-
-
 st.write("Current directory contents:")
 st.write(os.listdir("."))
-st.write("Contents of 'data' folder:")
-st.write(os.listdir("./data") if os.path.exists("./data") else "No 'data' folder found")
+st.write("Contents of 'erro-vista/data' folder:")
+st.write(os.listdir("./erro-vista/data") if os.path.exists("./erro-vista/data") else "No 'data' folder found")
 
 
 # Load the CSV file into a DataFrame
