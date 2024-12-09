@@ -86,7 +86,7 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
                     </tr>
                     <tr>
                         <th>Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td style="background-color: yellow; font-weight: bold;">{'N/A' if pine == 0 else pine}</td>
+                        <td style="background-color: #FFFACD; font-weight: bold;">{'N/A' if pine == 0 else pine}</td>
                     </tr>
             </div>
             """, unsafe_allow_html=True)
