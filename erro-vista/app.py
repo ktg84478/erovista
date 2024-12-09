@@ -26,7 +26,7 @@ st.title("EroVista EPA Configuration")
 
 # Sidebar inputs for user selections
 mount_type = st.sidebar.selectbox(
-    "Mount Type", table_data["mount_type"].unique()
+    "Installation Type", table_data["mount_type"].unique()
 )
 fixture_config = st.sidebar.selectbox(
     "Fixture Configuration", table_data["fixture_configuration"].unique()
@@ -86,7 +86,7 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
                     </tr>
                     <tr>
                         <th>Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td class="highlight">{'N/A' if pine == 0 else pine}</td>
+                        <td style="background-color: yellow; font-weight: bold;">{'N/A' if pine == 0 else pine}</td>
                     </tr>
             </div>
             """, unsafe_allow_html=True)
