@@ -104,12 +104,12 @@ st.markdown("""
 <div class="notes">
     <h2>Notes:</h2>
     <ol>
-        <li>1. Design based on AASHTO LRFDLTS-1 using wind pressures derived from ASCE 7-10 and ASCE 7-16 using an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.</li>
-        <li>2. Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns supplied by EroVista and manufactured in accordance with ANSI A190.1. Southern Yellow Pine poles are pressure treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values reduced for wet use conditions.</li>
-        <li>3. Pole height is the distance from grade to the top of the pole.</li>
-        <li>4. Total weight of fixtures assumed to be less than 50 lb. Maximum fixture offset of 24" assumed for side-mounted fixtures.</li>
-        <li>5. Use of hot-dipped galvanized or stainless steel fasteners recommended. A gasket shall be used to isolate metal fixtures from treated SYP poles.</li>
-        <li>6. Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li>
+        <li>Design based on AASHTO LRFDLTS-1 using wind pressures derived from ASCE 7-10 and ASCE 7-16 using an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.</li>
+        <li>Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns supplied by EroVista and manufactured in accordance with ANSI A190.1. Southern Yellow Pine poles are pressure treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values reduced for wet use conditions.</li>
+        <li>Pole height is the distance from grade to the top of the pole.</li>
+        <li>Total weight of fixtures assumed to be less than 50 lb. Maximum fixture offset of 24" assumed for side-mounted fixtures.</li>
+        <li>Use of hot-dipped galvanized or stainless steel fasteners recommended. A gasket shall be used to isolate metal fixtures from treated SYP poles.</li>
+        <li>Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li>
     </ol>
 
     <h3>Minimum Embedment Below Grade (ft)</h3>
@@ -139,10 +139,10 @@ st.markdown("""
             </tr>
         </tbody>
     </table>
-    
+
     <ol start="7">
-        <li>7. Recommended embedment depth based on pole being encased in a 24" diameter pier below grade or as designed by a licensed professional engineer.</li>
-        <li>8. Direct embedment depth based on the following soil properties: Gravel Soils (GW, GP): φ = 34°, γ = 130 lb/ft³, c = 0 lb/ft². Sandy Soils (SW, SP, SM, SC, GM, GC): φ = 30°, γ = 120 lb/ft³, c = 0 lb/ft².</li>
+        <li>Recommended embedment depth based on pole being encased in a 24" diameter pier below grade or as designed by a licensed professional engineer.</li>
+        <li>Direct embedment depth based on the following soil properties: Gravel Soils (GW, GP): φ = 34°, γ = 130 lb/ft³, c = 0 lb/ft². Sandy Soils (SW, SP, SM, SC, GM, GC): φ = 30°, γ = 120 lb/ft³, c = 0 lb/ft².</li>
     </ol>
 </div>
 """, unsafe_allow_html=True)
