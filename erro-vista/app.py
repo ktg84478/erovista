@@ -60,6 +60,7 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
             pine_message = f"**Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>):** {pine}" if pine > 0 else "**Southern Yellow Pine Max Fixture EPA:** Selected Configuration is not Possible"
 
             # Display results using your custom styling
+            # Display results using your custom styling
             st.markdown(f"""
             <div class="content">
                 <h1>Outcome</h1>
@@ -84,10 +85,11 @@ if st.sidebar.button("Calculate Max Fixture EPA..."):
                         <th>Alaskan Yellow Cedar Max Fixture EPA (ft<sup>2</sup>)</th>
                         <td class="highlight">{'N/A' if cedar == 0 else cedar}</td>
                     </tr>
-                    <tr>
+                    <tr style="background-color: yellow; color: black; font-weight: bold;">
                         <th>Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td style="background-color: #FFFACD; font-weight: bold;">{'N/A' if pine == 0 else pine}</td>
+                        <td>{'N/A' if pine == 0 else pine}</td>
                     </tr>
+                </table>
             </div>
             """, unsafe_allow_html=True)
         else:
