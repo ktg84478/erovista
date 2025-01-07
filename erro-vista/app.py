@@ -56,10 +56,8 @@ epa_value = st.sidebar.number_input(
 )
 
 filtered_by_epa = filtered_by_pole_height[
-    (filtered_by_pole_height["Alaskan Yellow Cedar Poles EPA"] <= epa_value) &
-    (filtered_by_pole_height["Southern Yellow Pine Poles EPA"] <= epa_value) &
-    (filtered_by_pole_height["Alaskan Yellow Cedar Poles EPA"] > 0) &
-    (filtered_by_pole_height["Southern Yellow Pine Poles EPA"] > 0)
+    (filtered_by_pole_height["epa"] <= epa_value) &
+    (filtered_by_pole_height["epa"] > 0)
 ]
 
 
