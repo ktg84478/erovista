@@ -28,18 +28,26 @@ st.title("EroVista Pole Height Configuration")
 mount_type = st.sidebar.selectbox(
     "Installation Type", table_data["mount_type"].unique()
 )
+filtered_by_mount_type = table_data[table_data["mount_type"] == mount_type]
+
 fixture_config = st.sidebar.selectbox(
-    "Fixture Configuration", table_data["fixture_configuration"].unique()
+    "Fixture Configuration", filtered_by_mount_type["fixture_configuration"].unique()
 )
+
+filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config]
+
 wind_speed = st.sidebar.selectbox(
-    "Wind Speed (mph)", table_data["wind_speed_mph"].unique()
+    "Wind Speed (mph)", filtered_by_fixture_config["wind_speed_mph"].unique()
 )
+filtered_by_wind_speed = filtered_by_fixture_config[filtered_by_fixture_config["wind_speed_mph"] == wind_speed]
+
 pole_size = st.sidebar.selectbox(
-    "Pole Size", table_data["ero_vista_pole_size"].unique()
+    "Pole Size", filtered_by_wind_speed["ero_vista_pole_size"].unique()
 )
 pole_height = st.sidebar.selectbox(
-    "Pole Height (ft)", table_data["pole_height_ft"].unique()
+    "Pole Height (ft)", filtered_by_wind_speed["pole_height_ft"].unique()
 )
+filtered_data = filtered_by_wind_speed[filtered_by_wind_speed["pole_height_ft"] == pole_height]
 
 
 # Button to display results
