@@ -25,15 +25,34 @@ local_css("erro-vista/static/style.css")
 # Title of the app
 st.title("EroVista&reg; Pole Height Configuration")
 
-# Display a checkbox asking users to accept the terms
-accept_terms = st.sidebar.checkbox("I accept the Terms and Conditions")
+# Display the Terms and Conditions for the user to read and accept
+terms = """
+## Terms and Conditions
 
-# If the user has not accepted the terms, show a message and stop the app from running
+By using this tool, you agree to the following terms and conditions:
+
+1. The calculations are based on AASHTO LRFDLTS-1 and use wind pressures derived from ASCE 7-10 and ASCE 7-16, assuming an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.
+2. Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns, supplied by EroVista and manufactured in accordance with ANSI A190.1.
+3. Southern Yellow Pine poles are pressure-treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values are reduced for wet-use conditions.
+4. Pole height is the distance from grade to the top of the pole.
+5. The total weight of fixtures is assumed to be less than 50 lb. A maximum fixture offset of 24" is assumed for side-mounted fixtures.
+6. Hot-dipped galvanized or stainless steel fasteners are recommended. A gasket should be used to isolate metal fixtures from treated Southern Yellow Pine poles.
+
+By clicking "Accept", you agree to these terms and conditions.
+"""
+
+# Display the terms on the main page
+st.markdown(terms)
+
+# Ask the user to accept the terms before proceeding
+accept_terms = st.checkbox("I accept the Terms and Conditions")
+
+# If the user has not accepted the terms, stop further execution
 if not accept_terms:
-    st.sidebar.warning("You must accept the terms and conditions to use this tool.")
-    st.stop()  # This stops further execution of the app
+    st.warning("You must accept the terms and conditions to use this tool.")
+    st.stop()  # This stops further execution
 
-# Sidebar inputs for user selections
+# Sidebar inputs for user selections (will only show if terms are accepted)
 mount_type = st.sidebar.selectbox(
     "Installation Type", table_data["mount_type"].unique()
 )
@@ -136,6 +155,3 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
 
 # Ensure the app renders well on mobile devices
 st.markdown("""<meta name="viewport" content="width=device-width, initial-scale=1.0">""", unsafe_allow_html=True)
-
-# Add notes as footnotes
-st.markdown("""<div class="notes"><h3>Notes:</h3><ol><li>Design based on AASHTO LRFDLTS-1 using wind pressures derived from ASCE 7-10 and ASCE 7-16 using an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.</li><li>Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns supplied by EroVista and manufactured in accordance with ANSI A190.1. Southern Yellow Pine poles are pressure treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values reduced for wet use conditions.</li><li>Pole height is the distance from grade to the top of the pole.</li><li>Total weight of fixtures assumed to be less than 50 lb. Maximum fixture offset of 24" assumed for side-mounted fixtures.</li><li>Use of hot-dipped galvanized or stainless steel fasteners recommended. A gasket shall be used to isolate metal fixtures from treated SYP poles.</li><li>Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li></ol></div>""", unsafe_allow_html=True)
