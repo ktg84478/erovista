@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Set the app's configuration
-st.set_page_config(page_title="EroVista EPA Configuration", layout="wide")
+st.set_page_config(page_title="EroVista&reg; Pole Height Configuration", layout="wide")
 
 # Load the CSV file into a DataFrame
 @st.cache_data
@@ -22,7 +22,16 @@ def local_css(file_name):
 # Load custom CSS
 local_css("erro-vista/static/style.css")
 
+# Title of the app
 st.title("EroVista&reg; Pole Height Configuration")
+
+# Display a checkbox asking users to accept the terms
+accept_terms = st.sidebar.checkbox("I accept the Terms and Conditions")
+
+# If the user has not accepted the terms, show a message and stop the app from running
+if not accept_terms:
+    st.sidebar.warning("You must accept the terms and conditions to use this tool.")
+    st.stop()  # This stops further execution of the app
 
 # Sidebar inputs for user selections
 mount_type = st.sidebar.selectbox(
@@ -55,8 +64,8 @@ epa_value = st.sidebar.number_input(
     format="%.2f"
 )
 
-filtered_by_epa = filtered_by_pole_height[
-    (filtered_by_pole_height["epa"] <= epa_value) &
+filtered_by_epa = filtered_by_pole_height[(
+    filtered_by_pole_height["epa"] <= epa_value) & 
     (filtered_by_pole_height["epa"] > 0)
 ]
 
@@ -126,20 +135,7 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
         st.error(f"An error occurred: {e}")
 
 # Ensure the app renders well on mobile devices
-st.markdown("""
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-""", unsafe_allow_html=True)
+st.markdown("""<meta name="viewport" content="width=device-width, initial-scale=1.0">""", unsafe_allow_html=True)
+
 # Add notes as footnotes
-st.markdown("""
-<div class="notes">
-    <h3>Notes:</h3>
-    <ol>
-        <li>Design based on AASHTO LRFDLTS-1 using wind pressures derived from ASCE 7-10 and ASCE 7-16 using an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.</li>
-        <li>Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns supplied by EroVista and manufactured in accordance with ANSI A190.1. Southern Yellow Pine poles are pressure treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values reduced for wet use conditions.</li>
-        <li>Pole height is the distance from grade to the top of the pole.</li>
-        <li>Total weight of fixtures assumed to be less than 50 lb. Maximum fixture offset of 24" assumed for side-mounted fixtures.</li>
-        <li>Use of hot-dipped galvanized or stainless steel fasteners recommended. A gasket shall be used to isolate metal fixtures from treated SYP poles.</li>
-        <li>Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li>
-    </ol>
-</div>
-""", unsafe_allow_html=True)
+st.markdown("""<div class="notes"><h3>Notes:</h3><ol><li>Design based on AASHTO LRFDLTS-1 using wind pressures derived from ASCE 7-10 and ASCE 7-16 using an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.</li><li>Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns supplied by EroVista and manufactured in accordance with ANSI A190.1. Southern Yellow Pine poles are pressure treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values reduced for wet use conditions.</li><li>Pole height is the distance from grade to the top of the pole.</li><li>Total weight of fixtures assumed to be less than 50 lb. Maximum fixture offset of 24" assumed for side-mounted fixtures.</li><li>Use of hot-dipped galvanized or stainless steel fasteners recommended. A gasket shall be used to isolate metal fixtures from treated SYP poles.</li><li>Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li></ol></div>""", unsafe_allow_html=True)
