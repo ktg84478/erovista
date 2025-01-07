@@ -41,12 +41,19 @@ wind_speed = st.sidebar.selectbox(
 )
 filtered_by_wind_speed = filtered_by_fixture_config[filtered_by_fixture_config["wind_speed_mph"] == wind_speed]
 
-pole_size = st.sidebar.selectbox(
-    "Pole Size", filtered_by_wind_speed["ero_vista_pole_size"].unique()
+
+epa_value = st.sidebar.number_input(
+    "Maximum Fixture EPA", 
+    min_value=0.0, 
+    value=0.0, 
+    step=0.01, 
+    format="%.2f"
 )
+
 pole_height = st.sidebar.selectbox(
     "Pole Height (ft)", filtered_by_wind_speed["pole_height_ft"].unique()
 )
+
 filtered_data = filtered_by_wind_speed[filtered_by_wind_speed["pole_height_ft"] == pole_height]
 
 
