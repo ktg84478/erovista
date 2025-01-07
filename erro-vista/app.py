@@ -22,7 +22,7 @@ def local_css(file_name):
 # Load custom CSS
 local_css("erro-vista/static/style.css")
 
-st.title("EroVista EPA Configuration")
+st.title("EroVista Pole Height Configuration")
 
 # Sidebar inputs for user selections
 mount_type = st.sidebar.selectbox(
@@ -31,18 +31,19 @@ mount_type = st.sidebar.selectbox(
 fixture_config = st.sidebar.selectbox(
     "Fixture Configuration", table_data["fixture_configuration"].unique()
 )
+wind_speed = st.sidebar.selectbox(
+    "Wind Speed (mph)", table_data["wind_speed_mph"].unique()
+)
 pole_size = st.sidebar.selectbox(
     "Pole Size", table_data["ero_vista_pole_size"].unique()
 )
 pole_height = st.sidebar.selectbox(
     "Pole Height (ft)", table_data["pole_height_ft"].unique()
 )
-wind_speed = st.sidebar.selectbox(
-    "Wind Speed (mph)", table_data["wind_speed_mph"].unique()
-)
+
 
 # Button to display results
-if st.sidebar.button("Calculate Max Fixture EPA..."):
+if st.sidebar.button("Calculate EroVista Pole Height..."):
     try:
         filtered_data = table_data[
             (table_data["mount_type"] == mount_type) &
