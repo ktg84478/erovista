@@ -7,7 +7,7 @@ st.set_page_config(page_title="EroVista EPA Configuration", layout="wide")
 # Load the CSV file into a DataFrame
 @st.cache_data
 def load_table_data():
-    csv_path = "erro-vista/data/data.csv"  # Update with the path to your data folder
+    csv_path = "erro-vista/data/data2.csv"  # Update with the path to your data folder
     data = pd.read_csv(csv_path)
     return data
 
@@ -64,7 +64,7 @@ filtered_by_epa = filtered_by_pole_height[
 
 
 
-filtered_data = filtered_by_wind_speed[filtered_by_wind_speed["pole_height_ft"] == pole_height]
+filtered_data = filtered_by_epa.copy()
 
 
 # Button to display results
@@ -78,7 +78,7 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
             (table_data["wind_speed_mph"] == wind_speed)
         ]
         if not filtered_data.empty:
-            cedar = filtered_data["Alaskan Yellow Cedar Poles"].values[0]
+            cedar = filtered_data["ero_vista_pole_size"].values[0]
             pine = filtered_data["Southern Yellow Pine Poles"].values[0]
 
             # Handle cases where one or both values are 0
