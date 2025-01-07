@@ -60,28 +60,24 @@ filtered_by_epa = filtered_by_pole_height[
     (filtered_by_pole_height["epa"] > 0)
 ]
 
-
-
-filtered_data = filtered_by_epa.copy()
-
-
 # Button to display results
 if st.sidebar.button("Calculate EroVista Pole Height..."):
     try:
         filtered_data = table_data[
             (table_data["mount_type"] == mount_type) &
             (table_data["fixture_configuration"] == fixture_config) &
-            (table_data["ero_vista_pole_size"] == pole_size) &
+            (table_data["epa"] <= epa_value) &
+            (table_data["epa"] > 0) &
             (table_data["pole_height_ft"] == pole_height) &
             (table_data["wind_speed_mph"] == wind_speed)
         ]
         if not filtered_data.empty:
-            cedar = filtered_data["ero_vista_pole_size"].values[0]
-            pine = filtered_data["Southern Yellow Pine Poles"].values[0]
+            cedar = filtered_data[filtered_data['wood_type']=='AYC']["ero_vista_pole_size"].values[0]
+            pine = filtered_data[filtered_data['wood_type']=='SYP']["ero_vista_pole_size"].values[0]
 
             # Handle cases where one or both values are 0
-            cedar_message = f"**Alaskan Yellow Cedar Max Fixture EPA (ft<sup>2</sup>):** {cedar}" if cedar > 0 else "**Alaskan Yellow Cedar Max Fixture EPA:** Selected Configuration is not Possible"
-            pine_message = f"**Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>):** {pine}" if pine > 0 else "**Southern Yellow Pine Max Fixture EPA:** Selected Configuration is not Possible"
+            cedar_message = f"**Alaskan Yellow Cedar EroVista Pole Size (ft<sup>2</sup>):** {cedar}" if cedar > 0 else "**Alaskan Yellow Cedar EroVista Pole Size:** Selected Configuration is not Possible"
+            pine_message = f"**Southern Yellow Pine EroVista Pole Size (ft<sup>2</sup>):** {pine}" if pine > 0 else "**Southern Yellow Pine EroVista Pole Size:** Selected Configuration is not Possible"
 
             # Display results using your custom styling
             # Display results using your custom styling
