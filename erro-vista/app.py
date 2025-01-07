@@ -22,7 +22,7 @@ def local_css(file_name):
 # Load custom CSS
 local_css("erro-vista/static/style.css")
 
-st.title("EroVista Pole Height Configuration")
+st.title("EroVista&reg; Pole Height Configuration")
 
 # Sidebar inputs for user selections
 mount_type = st.sidebar.selectbox(
