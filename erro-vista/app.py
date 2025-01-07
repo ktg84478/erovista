@@ -28,19 +28,24 @@ st.title("EroVista Pole Height Configuration")
 mount_type = st.sidebar.selectbox(
     "Installation Type", table_data["mount_type"].unique()
 )
-filtered_by_mount_type = table_data[table_data["mount_type"] == mount_type]
+filtered_by_mount_type = table_data[table_data["mount_type"] == mount_type].reset_index(drop=True)
 
 fixture_config = st.sidebar.selectbox(
     "Fixture Configuration", filtered_by_mount_type["fixture_configuration"].unique()
 )
 
-filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config]
+filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config].reset_index(drop=True)
 
 wind_speed = st.sidebar.selectbox(
     "Wind Speed (mph)", filtered_by_fixture_config["wind_speed_mph"].unique()
 )
-filtered_by_wind_speed = filtered_by_fixture_config[filtered_by_fixture_config["wind_speed_mph"] == wind_speed]
+filtered_by_wind_speed = filtered_by_fixture_config[filtered_by_fixture_config["wind_speed_mph"] == wind_speed].reset_index(drop=True)
 
+pole_height = st.sidebar.selectbox(
+    "Pole Height (ft)", filtered_by_wind_speed["pole_height_ft"].unique()
+)
+
+filtered_by_pole_height = filtered_by_wind_speed[filtered_by_wind_speed['pole_height_ft']==pole_height].reset_index(drop=True)
 
 epa_value = st.sidebar.number_input(
     "Maximum Fixture EPA", 
@@ -50,9 +55,14 @@ epa_value = st.sidebar.number_input(
     format="%.2f"
 )
 
-pole_height = st.sidebar.selectbox(
-    "Pole Height (ft)", filtered_by_wind_speed["pole_height_ft"].unique()
-)
+filtered_by_epa = filtered_by_pole_height[
+    (filtered_by_pole_height["Alaskan Yellow Cedar Poles EPA"] <= epa_value) &
+    (filtered_by_pole_height["Southern Yellow Pine Poles EPA"] <= epa_value) &
+    (filtered_by_pole_height["Alaskan Yellow Cedar Poles EPA"] > 0) &
+    (filtered_by_pole_height["Southern Yellow Pine Poles EPA"] > 0)
+]
+
+
 
 filtered_data = filtered_by_wind_speed[filtered_by_wind_speed["pole_height_ft"] == pole_height]
 
