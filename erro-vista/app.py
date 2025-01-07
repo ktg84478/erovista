@@ -45,7 +45,7 @@ pole_height = st.sidebar.selectbox(
     "Pole Height (ft)", filtered_by_wind_speed["pole_height_ft"].unique()
 )
 
-filtered_by_pole_height = filtered_by_wind_speed[filtered_by_wind_speed['pole_height_ft']==pole_height].reset_index(drop=True)
+filtered_by_pole_height = filtered_by_wind_speed[filtered_by_wind_speed['pole_height_ft'] == pole_height].reset_index(drop=True)
 
 epa_value = st.sidebar.number_input(
     "Maximum Fixture EPA", 
@@ -71,15 +71,23 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
             (table_data["pole_height_ft"] == pole_height) &
             (table_data["wind_speed_mph"] == wind_speed)
         ]
+        
         if not filtered_data.empty:
-            cedar = filtered_data[filtered_data['wood_type']=='AYC']["ero_vista_pole_size"].values[0]
-            pine = filtered_data[filtered_data['wood_type']=='SYP']["ero_vista_pole_size"].values[0]
+            # Get all unique ero_vista_pole_size values for AYC and SYP
+            ayc_pole_sizes = filtered_data[filtered_data['wood_type'] == 'AYC']["ero_vista_pole_size"].unique()
+            syp_pole_sizes = filtered_data[filtered_data['wood_type'] == 'SYP']["ero_vista_pole_size"].unique()
 
-            # Handle cases where one or both values are 0
-            cedar_message = f"**Alaskan Yellow Cedar EroVista Pole Size (ft<sup>2</sup>):** {cedar}" if len(cedar) > 0 else "**Alaskan Yellow Cedar EroVista Pole Size:** Selected Configuration is not Possible"
-            pine_message = f"**Southern Yellow Pine EroVista Pole Size (ft<sup>2</sup>):** {pine}" if len(pine) > 0 else "**Southern Yellow Pine EroVista Pole Size:** Selected Configuration is not Possible"
+            # Check if matching AYC and SYP pole sizes exist
+            if len(ayc_pole_sizes) > 0:
+                cedar_message = f"**Alaskan Yellow Cedar EroVista Pole Sizes (ft<sup>2</sup>):** {', '.join(map(str, ayc_pole_sizes))}"
+            else:
+                cedar_message = "**Alaskan Yellow Cedar EroVista Pole Size:** Selected Configuration is not Possible"
 
-            # Display results using your custom styling
+            if len(syp_pole_sizes) > 0:
+                pine_message = f"**Southern Yellow Pine EroVista Pole Sizes (ft<sup>2</sup>):** {', '.join(map(str, syp_pole_sizes))}"
+            else:
+                pine_message = "**Southern Yellow Pine EroVista Pole Size:** Selected Configuration is not Possible"
+
             # Display results using your custom styling
             st.markdown(f"""
             <div class="content">
@@ -90,10 +98,6 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
                         <td>{fixture_config}</td>
                     </tr>
                     <tr>
-                        <th>Pole Size</th>
-                        <td>{pole_size}</td>
-                    </tr>
-                    <tr>
                         <th>Pole Height (ft)</th>
                         <td>{pole_height}</td>
                     </tr>
@@ -102,12 +106,16 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
                         <td>{wind_speed}</td>
                     </tr>
                     <tr>
+                        <th>Maximum Fixture EPA (ft<sup>2</sup>)</th>
+                        <td>{epa_value}</td>
+                    </tr>
+                    <tr>
                         <th>Alaskan Yellow Cedar Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td class="highlight">{'N/A' if cedar == 0 else cedar}</td>
+                        <td class="highlight">{cedar_message}</td>
                     </tr>
                     <tr style="background-color: yellow; color: black; font-weight: bold;">
                         <th>Southern Yellow Pine Max Fixture EPA (ft<sup>2</sup>)</th>
-                        <td>{'N/A' if pine == 0 else pine}</td>
+                        <td>{pine_message}</td>
                     </tr>
                 </table>
             </div>
