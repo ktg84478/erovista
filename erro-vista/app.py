@@ -56,7 +56,7 @@ if not st.session_state.accepted_terms:
         st.session_state.accepted_terms = True  # Set the flag to True when accepted
     else:
         st.warning("You must accept the terms and conditions to use this tool.")
-        st.stop()  # This stops further execution
+        st.stop()  # This stops further execution until terms are accepted
 
 # Sidebar inputs for user selections (will only show if terms are accepted)
 mount_type = st.sidebar.selectbox(
@@ -113,14 +113,14 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
 
             # Check if matching AYC and SYP pole sizes exist
             if len(ayc_pole_sizes) > 0:
-                cedar_message = f"**Alaskan Yellow Cedar EroVista Pole Sizes:** {', '.join(map(str, ayc_pole_sizes))}"
+                cedar_message = f"Alaskan Yellow Cedar EroVista Pole Sizes: {', '.join(map(str, ayc_pole_sizes))}"
             else:
-                cedar_message = "**Alaskan Yellow Cedar EroVista Pole Size:** Selected Configuration is not Possible"
+                cedar_message = "Alaskan Yellow Cedar EroVista Pole Size: Selected Configuration is not Possible"
 
             if len(syp_pole_sizes) > 0:
-                pine_message = f"**Southern Yellow Pine EroVista Pole Sizes:** {', '.join(map(str, syp_pole_sizes))}"
+                pine_message = f"Southern Yellow Pine EroVista Pole Sizes: {', '.join(map(str, syp_pole_sizes))}"
             else:
-                pine_message = "**Southern Yellow Pine EroVista Pole Size:** Selected Configuration is not Possible"
+                pine_message = "Southern Yellow Pine EroVista Pole Size: Selected Configuration is not Possible"
 
             # Display results using your custom styling
             st.markdown(f"""
