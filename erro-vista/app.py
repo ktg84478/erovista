@@ -76,8 +76,8 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
             pine = filtered_data[filtered_data['wood_type']=='SYP']["ero_vista_pole_size"].values[0]
 
             # Handle cases where one or both values are 0
-            cedar_message = f"**Alaskan Yellow Cedar EroVista Pole Size (ft<sup>2</sup>):** {cedar}" if cedar > 0 else "**Alaskan Yellow Cedar EroVista Pole Size:** Selected Configuration is not Possible"
-            pine_message = f"**Southern Yellow Pine EroVista Pole Size (ft<sup>2</sup>):** {pine}" if pine > 0 else "**Southern Yellow Pine EroVista Pole Size:** Selected Configuration is not Possible"
+            cedar_message = f"**Alaskan Yellow Cedar EroVista Pole Size (ft<sup>2</sup>):** {cedar}" if len(cedar) > 0 else "**Alaskan Yellow Cedar EroVista Pole Size:** Selected Configuration is not Possible"
+            pine_message = f"**Southern Yellow Pine EroVista Pole Size (ft<sup>2</sup>):** {pine}" if len(pine) > 0 else "**Southern Yellow Pine EroVista Pole Size:** Selected Configuration is not Possible"
 
             # Display results using your custom styling
             # Display results using your custom styling
