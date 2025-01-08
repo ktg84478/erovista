@@ -30,9 +30,6 @@ def local_css(file_name):
 # Load custom CSS
 local_css("erro-vista/static/style.css")
 
-# Title of the app
-st.title("EroVista&reg; Pole Height Configuration")
-
 # Initialize session_state to track terms acceptance
 if "accepted_terms" not in st.session_state:
     st.session_state.accepted_terms = False
