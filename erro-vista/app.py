@@ -130,7 +130,7 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
             # Display results using your custom styling
             st.markdown(f"""
             <div class="content">
-                <h1>Outcome</h1>
+                <h1style="font-size: 18px;">Configuration...</h1>
                 <table>
                     <tr>
                         <th>Fixture Configuration</th>
