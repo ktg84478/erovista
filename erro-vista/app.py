@@ -100,7 +100,7 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
         filtered_data = table_data[
             (table_data["mount_type"] == mount_type) &
             (table_data["fixture_configuration"] == fixture_config) &
-            (table_data["epa"] <= epa_value) &
+            (table_data["epa"] >= epa_value) &
             (table_data["epa"] > 0) &
             (table_data["pole_height_ft"] == pole_height) &
             (table_data["wind_speed_mph"] == wind_speed)
