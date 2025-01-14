@@ -77,7 +77,7 @@ ordered_unique_fixture_values = [
 
 # Sidebar for fixture configuration
 fixture_config = st.sidebar.selectbox(
-    "Fixture Configuration", ordered_unique_fixture_values
+    "Fixture Configuration", ['Single Top Mount Fixture','Single Side Mount Fixture','Two or More Side Mount Fixtures']
 )
 
 filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config].reset_index(drop=True) 
