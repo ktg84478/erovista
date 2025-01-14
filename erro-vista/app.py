@@ -7,7 +7,7 @@ st.set_page_config(page_title="EroVista&reg; Pole Sizer", layout="wide")
 # Title and image side by side
 col1, col2 = st.columns([1, 6])  # Adjust column widths as needed
 with col1:
-    st.image("erro-vista/static/logo.jpg", width=160) # Replace with your image path and adjust width
+    st.image("erro-vista/static/logo2.png", use_column_width=True) # Replace with your image path and adjust width
 
 with col2:
     st.title("EroVista® Pole Sizer")
