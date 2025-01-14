@@ -68,6 +68,7 @@ mount_type = st.sidebar.selectbox(
     "Installation Type", table_data["mount_type"].unique()
 )
 filtered_by_mount_type = table_data[table_data["mount_type"] == mount_type].reset_index(drop=True)
+st.write(filtered_by_mount_type['fixture_configuration'].unique())
 
 # Ensure the unique values are properly matched and ordered
 ordered_unique_fixture_values = [
