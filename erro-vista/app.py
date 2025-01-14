@@ -70,10 +70,11 @@ mount_type = st.sidebar.selectbox(
 filtered_by_mount_type = table_data[table_data["mount_type"] == mount_type].reset_index(drop=True)
 
 fixture_config = st.sidebar.selectbox(
-    "Fixture Configuration", filtered_by_mount_type["fixture_configuration"].unique()
+    "Fixture Configuration", ["Single Top Mount Fixture", "Single Side Mount Fixture", "Two or More Side Mount Fixtures"]
 )
 
-filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config].reset_index(drop=True)
+filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config].reset_index(drop=True) 
+
 
 wind_speed = st.sidebar.selectbox(
     "Wind Speed (mph)", filtered_by_fixture_config["wind_speed_mph"].unique()
