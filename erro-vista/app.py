@@ -68,7 +68,14 @@ mount_type = st.sidebar.selectbox(
     "Installation Type", table_data["mount_type"].unique()
 )
 filtered_by_mount_type = table_data[table_data["mount_type"] == mount_type].reset_index(drop=True)
-ordered_unique_fixture_values = pd.Categorical(filtered_by_mount_type['fixture_configuration'].unique(), categories=["Single Top Mount Fixture","Single Side Mount Fixture","Two or More Side Mount Fixtures"], ordered=True).tolist()
+
+# Ensure the unique values are properly matched and ordered
+ordered_unique_fixture_values = [
+    x for x in ["Single Top Mount Fixture", "Single Side Mount Fixture", "Two or More Side Mount Fixtures"]
+    if x in filtered_by_mount_type["fixture_configuration"].unique()
+]
+
+# Sidebar for fixture configuration
 fixture_config = st.sidebar.selectbox(
     "Fixture Configuration", ordered_unique_fixture_values
 )
