@@ -2,12 +2,12 @@ import streamlit as st
 import pandas as pd
 
 # Set the app's configuration
-st.set_page_config(page_title="EroVista&reg; Pole Sizer", layout="wide")
+st.set_page_config(page_title="EroVista® Pole Sizer", layout="wide")
 
 # Title and image side by side
 col1, col2 = st.columns([0.5, 6])  # Adjust column widths as needed
 with col1:
-    st.image("erro-vista/static/logo2.png", use_container_width=True) # Replace with your image path and adjust width
+    st.image("erro-vista/static/logo2.png", use_container_width=True)  # Replace with your image path
 
 with col2:
     st.title("EroVista® Pole Sizer")
@@ -42,72 +42,64 @@ if not st.session_state.accepted_terms:
     The use of the EroVista Pole Sizer application is for sales presentation only and is not
     to be construed as an engineer's evaluation of the project. Always consult with a
     licensed specifier and refer to EroVista's specification page at [erovista.net/specification](https://erovista.net/specification) 
-    for technical information, design tables, important design notes and additional
+    for technical information, design tables, important design notes, and additional
     information.
 
     By clicking "Accept", you agree to these terms and conditions.
-
     """
-
     # Display the terms on the main page
     st.markdown(terms)
-
-    # Ask the user to accept the terms before proceeding
     accept_terms = st.checkbox("I accept the Terms and Conditions")
 
     if accept_terms:
-        st.session_state.accepted_terms = True  # Set the flag to True when accepted
+        st.session_state.accepted_terms = True
     else:
         st.warning("You must accept the terms and conditions to use this tool.")
-        st.stop()  # This stops further execution until terms are accepted
+        st.stop()  # Stop further execution until terms are accepted
 
-# Sidebar inputs for user selections (will only show if terms are accepted)
-mount_type = st.sidebar.selectbox(
-    "Installation Type", table_data["mount_type"].unique()
+# Main page inputs for user selections
+st.markdown("### User Inputs")
+
+mount_type = st.selectbox(
+    "Installation Type:", table_data["mount_type"].unique()
 )
 filtered_by_mount_type = table_data[table_data["mount_type"] == mount_type].reset_index(drop=True)
 
-
-# Ensure the unique values are properly matched and ordered
 ordered_unique_fixture_values = [
     x for x in ["Single Top Mount Fixture", "Single Side Mount Fixture", "Two or More Side Mount Fixtures"]
     if x in filtered_by_mount_type["fixture_configuration"].unique()
 ]
 
-# Sidebar for fixture configuration
-fixture_config = st.sidebar.selectbox(
-    "Fixture Configuration", ordered_unique_fixture_values
+fixture_config = st.selectbox(
+    "Fixture Configuration:", ordered_unique_fixture_values
 )
+filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config].reset_index(drop=True)
 
-filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixture_configuration"] == fixture_config].reset_index(drop=True) 
-
-
-wind_speed = st.sidebar.selectbox(
-    "Wind Speed (Vmph)", filtered_by_fixture_config["wind_speed_mph"].unique()
+wind_speed = st.selectbox(
+    "Wind Speed (Vmph):", filtered_by_fixture_config["wind_speed_mph"].unique()
 )
 filtered_by_wind_speed = filtered_by_fixture_config[filtered_by_fixture_config["wind_speed_mph"] == wind_speed].reset_index(drop=True)
 
-pole_height = st.sidebar.selectbox(
-    "Fixture Height (from top of pedestal foundation or soil line)", filtered_by_wind_speed["pole_height_ft"].unique()
+pole_height = st.selectbox(
+    "Fixture Height (ft):", filtered_by_wind_speed["pole_height_ft"].unique()
 )
+filtered_by_pole_height = filtered_by_wind_speed[filtered_by_wind_speed["pole_height_ft"] == pole_height].reset_index(drop=True)
 
-filtered_by_pole_height = filtered_by_wind_speed[filtered_by_wind_speed['pole_height_ft'] == pole_height].reset_index(drop=True)
-
-epa_value = st.sidebar.number_input(
-    "Combined EPA of Fixture(s)", 
-    min_value=0.0, 
-    value=0.0, 
-    step=0.01, 
+epa_value = st.number_input(
+    "Combined EPA of Fixture(s):",
+    min_value=0.0,
+    value=0.0,
+    step=0.01,
     format="%.2f"
 )
 
-filtered_by_epa = filtered_by_pole_height[(
-    filtered_by_pole_height["epa"] >= epa_value) & 
+filtered_by_epa = filtered_by_pole_height[
+    (filtered_by_pole_height["epa"] >= epa_value) &
     (filtered_by_pole_height["epa"] > 0)
 ]
 
 # Button to display results
-if st.sidebar.button("Calculate EroVista Pole Size"):
+if st.button("Calculate EroVista Pole Size"):
     try:
         filtered_data = table_data[
             (table_data["mount_type"] == mount_type) &
@@ -117,24 +109,15 @@ if st.sidebar.button("Calculate EroVista Pole Size"):
             (table_data["pole_height_ft"] == pole_height) &
             (table_data["wind_speed_mph"] == wind_speed)
         ]
-        
+
         if not filtered_data.empty:
-            # Get all unique ero_vista_pole_size values for AYC and SYP
             ayc_pole_sizes = filtered_data[filtered_data['wood_type'] == 'AYC']["ero_vista_pole_size"].unique()
             syp_pole_sizes = filtered_data[filtered_data['wood_type'] == 'SYP']["ero_vista_pole_size"].unique()
 
-            # Check if matching AYC and SYP pole sizes exist
-            if len(ayc_pole_sizes) > 0:
-                cedar_message = f"{', '.join(map(str, ayc_pole_sizes))}"
-            else:
-                cedar_message = "No Solution"
+            cedar_message = f"{', '.join(map(str, ayc_pole_sizes))}" if len(ayc_pole_sizes) > 0 else "No Solution"
+            pine_message = f"{', '.join(map(str, syp_pole_sizes))}" if len(syp_pole_sizes) > 0 else "No Solution"
 
-            if len(syp_pole_sizes) > 0:
-                pine_message = f"{', '.join(map(str, syp_pole_sizes))}"
-            else:
-                pine_message = "No Solution"
-
-            # Display results using your custom styling
+            # Display the first table
             st.markdown(f"""
             <div class="content">
                 <h1>Recommended Solutions:</h1>
@@ -159,7 +142,7 @@ if st.sidebar.button("Calculate EroVista Pole Size"):
             </div>
             """, unsafe_allow_html=True)
 
-            # Display the second table for minimum section sizes
+            # Display the second table
             st.markdown(f"""
             <div class="content">
                 <h2>Minimum Section Size(s):</h2>
@@ -180,17 +163,13 @@ if st.sidebar.button("Calculate EroVista Pole Size"):
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
-# Ensure the app renders well on mobile devices
-st.markdown("""<meta name="viewport" content="width=device-width, initial-scale=1.0">""", unsafe_allow_html=True)
-
-# Add notes at the bottom with smaller font size (only show after accepting terms)
-if st.session_state.accepted_terms:
-    st.markdown("""
-    <div class="notes" style="font-size: 10px;">
-        <h3>Note</h3>
-        <ol>
-            <li>For poles directly embedded into the soil, consult with a licensed civil engineer and refer to EroVista's Specification Sheet for minimum embedment depth recommendations and important design information. Pole height + embedment depth = overall length of pole.</li>
-            <li>Pole height + embedment depth = overall length of pole.</li>
-        </ol>
-    </div>
-    """, unsafe_allow_html=True)
+# Add notes at the bottom
+st.markdown("""
+<div class="notes" style="font-size: 10px;">
+    <h3>Notes:</h3>
+    <ol>
+        <li>Always consult with a licensed specifier for accurate recommendations.</li>
+        <li>Poles are subject to local regulations and environmental conditions.</li>
+    </ol>
+</div>
+""", unsafe_allow_html=True)
