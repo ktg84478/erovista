@@ -39,16 +39,14 @@ if not st.session_state.accepted_terms:
     terms = """
     ## Terms and Conditions
 
-    By using this tool, you agree to the following terms and conditions:
-
-    1. The calculations are based on AASHTO LRFDLTS-1 and use wind pressures derived from ASCE 7-10 and ASCE 7-16, assuming an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.
-    2. Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns, supplied by EroVista and manufactured in accordance with ANSI A190.1.
-    3. Southern Yellow Pine poles are pressure-treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values are reduced for wet-use conditions.
-    4. Pole height is the distance from grade to the top of the pole.
-    5. The total weight of fixtures is assumed to be less than 50 lb. A maximum fixture offset of 24" is assumed for side-mounted fixtures.
-    6. Hot-dipped galvanized or stainless steel fasteners are recommended. A gasket should be used to isolate metal fixtures from treated Southern Yellow Pine poles.
+    The use of the EroVista Pole Sizer application is for sales presentation only and is not
+    to be construed as an engineer’s evaluation of the project. Always consult with a
+    licensed specifier and refer to EroVista’s specification page at erovista.net/specification
+    for technical information, design tables, important design notes and additional
+    information.
 
     By clicking "Accept", you agree to these terms and conditions.
+
     """
 
     # Display the terms on the main page
