@@ -4,6 +4,21 @@ import pandas as pd
 # Set the app's configuration
 st.set_page_config(page_title="EroVista® Pole Sizer", layout="wide")
 
+# Custom CSS to hide Streamlit branding
+hide_streamlit_style = """
+    <style>
+        #MainMenu {visibility: hidden;}  /* Hides the hamburger menu */
+        footer {visibility: hidden;}    /* Hides the footer */
+        footer:after {
+            content: ''; 
+            display: block; 
+            position: relative; 
+            color: transparent;
+        }
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # Title and image side by side
 col1, col2 = st.columns([0.5, 6])  # Adjust column widths as needed
 with col1:
