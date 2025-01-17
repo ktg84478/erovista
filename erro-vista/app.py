@@ -40,8 +40,8 @@ if not st.session_state.accepted_terms:
     ## Terms and Conditions
 
     The use of the EroVista Pole Sizer application is for sales presentation only and is not
-    to be construed as an engineer’s evaluation of the project. Always consult with a
-    licensed specifier and refer to EroVista’s specification page at erovista.net/specification
+    to be construed as an engineer's evaluation of the project. Always consult with a
+    licensed specifier and refer to EroVista's specification page at erovista.net/specification
     for technical information, design tables, important design notes and additional
     information.
 
