@@ -96,7 +96,7 @@ pole_height = st.sidebar.selectbox(
 filtered_by_pole_height = filtered_by_wind_speed[filtered_by_wind_speed['pole_height_ft'] == pole_height].reset_index(drop=True)
 
 epa_value = st.sidebar.number_input(
-    "Maximum Fixture EPA", 
+    "Combined EPA of Fixture(s)", 
     min_value=0.0, 
     value=0.0, 
     step=0.01, 
@@ -109,7 +109,7 @@ filtered_by_epa = filtered_by_pole_height[(
 ]
 
 # Button to display results
-if st.sidebar.button("Calculate EroVista Pole Height..."):
+if st.sidebar.button("Calculate EroVista Pole Size"):
     try:
         filtered_data = table_data[
             (table_data["mount_type"] == mount_type) &
