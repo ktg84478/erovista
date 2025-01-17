@@ -36,17 +36,18 @@ if "accepted_terms" not in st.session_state:
 
 # Display the Terms and Conditions if the user has not accepted them
 if not st.session_state.accepted_terms:
-        terms = """
-        ## Terms and Conditions
+    terms = """
+    ## Terms and Conditions
 
-        The use of the EroVista Pole Sizer application is for sales presentation only and is not
-        to be construed as an engineer's evaluation of the project. Always consult with a
-        licensed specifier and refer to EroVista's specification page at [erovista.net/specification](https://erovista.net/specification)
-        for technical information, design tables, important design notes, and additional
-        information.
+    The use of the EroVista Pole Sizer application is for sales presentation only and is not
+    to be construed as an engineer's evaluation of the project. Always consult with a
+    licensed specifier and refer to EroVista's specification page at [erovista.net/specification](https://erovista.net/specification) 
+    for technical information, design tables, important design notes and additional
+    information.
 
-        By clicking "Accept", you agree to these terms and conditions.
-        """
+    By clicking "Accept", you agree to these terms and conditions.
+
+    """
 
     # Display the terms on the main page
     st.markdown(terms)
