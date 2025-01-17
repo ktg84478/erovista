@@ -146,15 +146,15 @@ if st.sidebar.button("Calculate EroVista Pole Size"):
                         <td>{fixture_config}</td>
                     </tr>
                     <tr>
-                        <th>Pole Height (ft)</th>
+                        <th>Fixture Height (ft)</th>
                         <td>{pole_height}</td>
                     </tr>
                     <tr>
-                        <th>Wind Speed (mph)</th>
+                        <th>Wind Speed (Vmph)</th>
                         <td>{wind_speed}</td>
                     </tr>
                     <tr>
-                        <th>Maximum Fixture EPA</th>
+                        <th>Combined EPA of Fixture(s) (ft<sup>2</sup>)</th>
                         <td>{epa_value}</td>
                     </tr>
                     <tr>
