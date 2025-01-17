@@ -127,14 +127,14 @@ if st.sidebar.button("Calculate EroVista Pole Size"):
 
             # Check if matching AYC and SYP pole sizes exist
             if len(ayc_pole_sizes) > 0:
-                cedar_message = f"Alaskan Yellow Cedar EroVista Pole Sizes: {', '.join(map(str, ayc_pole_sizes))}"
+                cedar_message = f"{', '.join(map(str, ayc_pole_sizes))}"
             else:
-                cedar_message = "Alaskan Yellow Cedar EroVista Pole Size: Selected Configuration is not Possible"
+                cedar_message = "No Solution"
 
             if len(syp_pole_sizes) > 0:
-                pine_message = f"Southern Yellow Pine EroVista Pole Sizes: {', '.join(map(str, syp_pole_sizes))}"
+                pine_message = f"{', '.join(map(str, syp_pole_sizes))}"
             else:
-                pine_message = "Southern Yellow Pine EroVista Pole Size: Selected Configuration is not Possible"
+                pine_message = "No Solution"
 
             # Display results using your custom styling
             st.markdown(f"""
