@@ -8,6 +8,7 @@ st.markdown("""
     <style>
         #MainMenu {display: none !important;}
         footer {display: none !important;}
+        header {display: none !important;}
     </style>
 """, unsafe_allow_html=True)
 
