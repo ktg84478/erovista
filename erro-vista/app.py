@@ -85,12 +85,12 @@ filtered_by_fixture_config = filtered_by_mount_type[filtered_by_mount_type["fixt
 
 
 wind_speed = st.sidebar.selectbox(
-    "Wind Speed (mph)", filtered_by_fixture_config["wind_speed_mph"].unique()
+    "Wind Speed (Vmph)", filtered_by_fixture_config["wind_speed_mph"].unique()
 )
 filtered_by_wind_speed = filtered_by_fixture_config[filtered_by_fixture_config["wind_speed_mph"] == wind_speed].reset_index(drop=True)
 
 pole_height = st.sidebar.selectbox(
-    "Pole Height (ft)", filtered_by_wind_speed["pole_height_ft"].unique()
+    "Fixture Height (from top of pedestal foundation or soil line)", filtered_by_wind_speed["pole_height_ft"].unique()
 )
 
 filtered_by_pole_height = filtered_by_wind_speed[filtered_by_wind_speed['pole_height_ft'] == pole_height].reset_index(drop=True)
@@ -139,7 +139,7 @@ if st.sidebar.button("Calculate EroVista Pole Height..."):
             # Display results using your custom styling
             st.markdown(f"""
             <div class="content">
-                <h1>Configuration...</h1>
+                <h1>Recommended Solutions:</h1>
                 <table>
                     <tr>
                         <th>Fixture Configuration</th>
