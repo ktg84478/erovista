@@ -187,14 +187,10 @@ st.markdown("""<meta name="viewport" content="width=device-width, initial-scale=
 if st.session_state.accepted_terms:
     st.markdown("""
     <div class="notes" style="font-size: 10px;">
-        <h3>Notes:</h3>
+        <h3>Note</h3>
         <ol>
-            <li>Design based on AASHTO LRFDLTS-1 using wind pressures derived from ASCE 7-10 and ASCE 7-16 using an Importance Factor of 1.0 and Wind Exposure C. EPAs are applicable for IBC 2015, 2018, and 2021.</li>
-            <li>Poles are Alaskan Yellow Cedar or Southern Yellow Pine glue-laminated columns, supplied by EroVista and manufactured in accordance with ANSI A190.1. Southern Yellow Pine poles are pressure treated to a retention level required for Use Category UC4B per AWPA UC-1 standard and are suitable for ground contact, contact with freshwater, and exposure to saltwater splash. Design values reduced for wet use conditions.</li>
-            <li>Pole height is the distance from grade to the top of the pole.</li>
-            <li>Total weight of fixtures is assumed to be less than 50 lb. Maximum fixture offset of 24" assumed for side-mounted fixtures.</li>
-            <li>Use of hot-dipped galvanized or stainless steel fasteners recommended. A gasket shall be used to isolate metal fixtures from treated Southern Yellow Pine poles.</li>
-            <li>Maximum Fixture EPA shown is for the total of all fixtures and attachment arms.</li>
+            <li>For poles directly embedded into the soil, consult with a licensed civil engineer and refer to EroVista's Specification Sheet for minimum embedment depth recommendations and important design information. Pole height + embedment depth = overall length of pole.</li>
+            <li>Pole height + embedment depth = overall length of pole.</li>
         </ol>
     </div>
     """, unsafe_allow_html=True)
