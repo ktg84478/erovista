@@ -9,6 +9,11 @@ st.markdown("""
         #MainMenu {display: none !important;}
         footer {display: none !important;}
         header {display: none !important;}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgb(22, 22, 22);
+            color: rgb(247, 247, 247);
+        }
     </style>
 """, unsafe_allow_html=True)
 
