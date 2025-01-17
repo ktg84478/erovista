@@ -155,7 +155,16 @@ if st.sidebar.button("Calculate EroVista Pole Size"):
                         <th>Combined EPA of Fixture(s) (ft<sup>2</sup>)</th>
                         <td>{epa_value}</td>
                     </tr>
-                    <tr>
+                </table>
+            </div>
+            """, unsafe_allow_html=True)
+
+            # Display the second table for minimum section sizes
+            st.markdown(f"""
+            <div class="content">
+                <h2>Minimum Section Size(s):</h2>
+                <table>
+                    <tr style="background-color: lightgray;">
                         <th>Alaskan Yellow Cedar</th>
                         <td class="highlight">{cedar_message}</td>
                     </tr>
