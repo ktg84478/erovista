@@ -1,4 +1,4 @@
-﻿wood_type,mount_type,fixture_configuration,wind_speed_VVmph,pole_height_ft,epa,ero_vista_pole_size
+﻿wood_type,mount_type,fixture_configuration,wind_speed_mph,pole_height_ft,epa,ero_vista_pole_size
 AYC,Pedestal/Base Plate,Single Side Mount Fixture,Less Than or Equal to 115 Vmph,8,6.93,"5"" x 5-1/2"""
 AYC,Pedestal/Base Plate,Single Side Mount Fixture,Less Than or Equal to 120 Vmph,8,6.36,"5"" x 5-1/2"""
 AYC,Pedestal/Base Plate,Single Side Mount Fixture,Less Than or Equal to 130 Vmph,8,5.42,"5"" x 5-1/2"""
