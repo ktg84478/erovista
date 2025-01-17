@@ -158,11 +158,11 @@ if st.sidebar.button("Calculate EroVista Pole Size"):
                         <td>{epa_value}</td>
                     </tr>
                     <tr>
-                        <th>Alaskan Yellow Cedar Max Fixture EPA</th>
+                        <th>Alaskan Yellow Cedar</th>
                         <td class="highlight">{cedar_message}</td>
                     </tr>
                     <tr style="background-color: yellow; color: black; font-weight: bold;">
-                        <th>Southern Yellow Pine Max Fixture EPA</th>
+                        <th>Treated Southern Yellow Pine</th>
                         <td>{pine_message}</td>
                     </tr>
                 </table>
