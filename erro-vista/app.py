@@ -58,8 +58,6 @@ if not st.session_state.accepted_terms:
         st.stop()  # Stop further execution until terms are accepted
 
 # Main page inputs for user selections
-st.markdown("### User Inputs")
-
 mount_type = st.selectbox(
     "Installation Type:", table_data["mount_type"].unique()
 )
@@ -168,8 +166,8 @@ st.markdown("""
 <div class="notes" style="font-size: 10px;">
     <h3>Notes:</h3>
     <ol>
-        <li>Always consult with a licensed specifier for accurate recommendations.</li>
-        <li>Poles are subject to local regulations and environmental conditions.</li>
+            <li>For poles directly embedded into the soil, consult with a licensed civil engineer and refer to EroVista's Specification Sheet for minimum embedment depth recommendations and important design information. Pole height + embedment depth = overall length of pole.</li>
+            <li>Pole height + embedment depth = overall length of pole.</li>
     </ol>
 </div>
 """, unsafe_allow_html=True)
